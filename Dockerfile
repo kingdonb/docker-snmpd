@@ -1,10 +1,12 @@
-FROM centos:centos7
+FROM ubuntu:vivid
 MAINTAINER Kingdon Barrett <kbarrett@metrixmatrix.com>
 
 RUN \
-    yum update -y && \
-    yum install -y net-snmp && \
-    yum clean all
+    sed -i 's/vivid universe$/vivid universe multiverse/g' /etc/apt/sources.list && \
+    sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -y snmpd snmp-mibs-downloader && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY container-files /
 
