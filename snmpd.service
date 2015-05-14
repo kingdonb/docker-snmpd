@@ -1,0 +1,19 @@
+[Unit]
+Description=SNMPd Service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill snmpd
+ExecStartPre=-/usr/bin/docker rm snmpd
+ExecStartPre=/usr/bin/docker pull kingdonb/snmpd
+ExecStart=/usr/bin/bash -c \
+"/usr/bin/docker run \
+--name snmpd \
+-p 161:161/udp \
+--env=\"SERVER_IP=192.168.40.33\" \
+--env=\"LOCATION=`hostname`\" \
+--env=\"ADMIN_EMAIL=admin@metrixmatrix.com\" \
+kingdonb/snmpd"
+
+[X-Fleet]
+Global=true
