@@ -1,5 +1,5 @@
 FROM ubuntu:vivid
-MAINTAINER Kingdon Barrett <kbarrett@metrixmatrix.com>
+MAINTAINER Kingdon Barrett <yebyen@gmail.com>
 
 RUN \
     sed -i 's/vivid universe$/vivid universe multiverse/g' /etc/apt/sources.list && \
@@ -10,7 +10,7 @@ RUN \
 
 COPY container-files /
 
-ENV SERVER_IP=192.168.40.33 LOCATION=Office ADMIN_EMAIL=admin@metrixmatrix.com
+ENV SERVER_IP=129.21.49.95 LOCATION=CSH ADMIN_EMAIL=yebyen@gmail.com
 
 EXPOSE 161/udp
 
