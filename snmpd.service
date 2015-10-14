@@ -10,9 +10,9 @@ ExecStart=/usr/bin/bash -c \
 "/usr/bin/docker run \
 --name snmpd \
 -p 161:161/udp \
---env=\"SERVER_IP=192.168.40.33\" \
+--env=\"SERVER_IP=129.21.49.95\" \
 --env=\"LOCATION=`hostname`\" \
---env=\"ADMIN_EMAIL=admin@metrixmatrix.com\" \
+--env=\"ADMIN_EMAIL=yebyen@gmail.com\" \
 kingdonb/snmpd"
 
 [X-Fleet]
